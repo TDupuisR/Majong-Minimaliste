@@ -1,6 +1,8 @@
 using UnityEngine;
+using System;
 
 [CreateAssetMenu(fileName = "TileData", menuName = "Scriptable Objects/TileData")]
+[Serializable]
 public class TileData : ScriptableObject
 {
     [SerializeField] private families family;
