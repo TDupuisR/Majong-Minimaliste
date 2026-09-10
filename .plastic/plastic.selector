@@ -1,0 +1,4 @@
+repository "balloon of the countries/Majong-Minimaliste@11270607135079@cloud"
+  path "/"
+    br "/main"
+    co "/main"
