@@ -39,10 +39,10 @@ namespace InputCapture
             _inputAction = new PlayerInput();
             _inputAction.Gameplay.Enable();
 
-            _inputAction.Gameplay.MovementPlayer1.performed += ctx => OnP1MoveStart?.Invoke(ctx.ReadValue<Vector2>());
+            _inputAction.Gameplay.MovementPlayer1.started += ctx => OnP1MoveStart?.Invoke(ctx.ReadValue<Vector2>());
             _inputAction.Gameplay.MovementPlayer1.canceled += ctx => OnP1MoveEnd?.Invoke(Vector2.zero);
 
-            _inputAction.Gameplay.MovementPlayer2.performed += ctx => OnP2MoveStart?.Invoke(ctx.ReadValue<Vector2>());
+            _inputAction.Gameplay.MovementPlayer2.started += ctx => OnP2MoveStart?.Invoke(ctx.ReadValue<Vector2>());
             _inputAction.Gameplay.MovementPlayer2.canceled += ctx => OnP2MoveEnd?.Invoke(Vector2.zero);
         }
 
