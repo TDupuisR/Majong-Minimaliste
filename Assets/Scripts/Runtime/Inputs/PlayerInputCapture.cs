@@ -38,7 +38,5 @@ namespace InputCapture
             _inputAction.Gameplay.MovementPlayer2.performed += ctx => OnP2MoveStart.Invoke();
             _inputAction.Gameplay.MovementPlayer2.canceled += ctx => OnP2MoveEnd.Invoke();
         }
-        
-        
     }
 }
