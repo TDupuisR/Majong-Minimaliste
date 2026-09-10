@@ -22,6 +22,12 @@ namespace InputCapture
             else instance = this;
         }
 
+        private void Start() {
+            DontDestroyOnLoad(this);
+        }
+
+
+
         public event Action<Vector2> OnP1MoveStart;
         public event Action<Vector2> OnP1MoveEnd;
 
@@ -31,7 +37,7 @@ namespace InputCapture
         private void OnEnable() {
             _inputAction = new PlayerInput();
             _inputAction.Gameplay.Enable();
-            
+
             _inputAction.Gameplay.MovementPlayer1.performed += ctx => OnP1MoveStart.Invoke(ctx.ReadValue<Vector2>());
             _inputAction.Gameplay.MovementPlayer1.canceled += ctx => OnP1MoveEnd.Invoke(Vector2.zero);
 
