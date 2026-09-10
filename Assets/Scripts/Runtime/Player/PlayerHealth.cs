@@ -1,7 +1,7 @@
 using UnityEngine;
 using NaughtyAttributes;
 
-public class playerHealth : MonoBehaviour
+public class PlayerHealth : MonoBehaviour
 {
     [SerializeField, ReadOnly] private int playerHealth = 3;
     [SerializeField] private int playerMaxHealth = 3;
@@ -14,10 +14,10 @@ public class playerHealth : MonoBehaviour
 
     public void GiveHealth(int heal = 1) {
         if (playerHealth <= 0) return;
-        playerHealth = Mathf.Min(playerHealth + heal, PlayerMaxHealth);
+        playerHealth = Mathf.Min(playerHealth + heaL, playerMaxHealth);
     }
     
     public void ResetHealt() {
-        playerHealth = PlayerMaxHealth;
+        playerHealth = playerMaxHealth;
     }
 }
