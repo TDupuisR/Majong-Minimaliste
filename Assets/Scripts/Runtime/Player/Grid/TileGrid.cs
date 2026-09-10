@@ -11,6 +11,7 @@ public class TileGrid : MonoBehaviour
         float Ec = e / n;
         // Calcule - moitié espacement + diff col + centre Col(player)
         return transform.position.x - (e / 2) + index * Ec + (Ec / 2);
+        
     }
 
     [Button]
