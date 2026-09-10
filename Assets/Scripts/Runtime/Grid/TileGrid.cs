@@ -4,6 +4,7 @@ using NaughtyAttributes;
 public class TileGrid : MonoBehaviour
 {
     [SerializeField] private int n;
+    public int N { get => n;}
     [SerializeField] private float e;
 
     public float GridPos (int index) {

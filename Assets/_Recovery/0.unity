@@ -427,6 +427,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   playerId: 0
   grid: {fileID: 252615639}
+  playerPos: 0
 --- !u!212 &2116254700
 SpriteRenderer:
   serializedVersion: 2
