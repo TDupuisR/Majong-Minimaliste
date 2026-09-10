@@ -14,7 +14,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void GiveHealth(int heal = 1) {
         if (playerHealth <= 0) return;
-        playerHealth = Mathf.Min(playerHealth + heaL, playerMaxHealth);
+        playerHealth = Mathf.Min(playerHealth + heal, playerMaxHealth);
     }
     
     public void ResetHealt() {
