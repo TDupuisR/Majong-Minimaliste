@@ -1355,7 +1355,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8536262754290708285, guid: a2d2da42fc89c01f09a45d72c54b88d9, type: 3}
       propertyPath: _tileColliderSize.y
-      value: 0.7
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 8536262754290708285, guid: a2d2da42fc89c01f09a45d72c54b88d9, type: 3}
       propertyPath: '_grids.Array.data[0]'
