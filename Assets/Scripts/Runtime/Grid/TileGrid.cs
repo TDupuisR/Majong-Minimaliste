@@ -44,26 +44,54 @@ public class TileGrid : MonoBehaviour
         return transform.position.x - (e / 2) + index * Ec + (Ec / 2);
     }
 
-    public bool CheckCollision(int index, float height, out float hit)
+    /// <summary>
+    /// Check for Collision
+    /// </summary>
+    /// <param name="pos"></param>
+    /// <param name="height"></param>
+    /// <returns>0 = no collision | 1 = stacking | 2 >= crash</returns>
+    public int CheckCollision(int pos, float height, out TileBehaviour collided, out float hit)
     {
-        bool result = false;
+        collided = null;
+        int result = 0;
         hit = TilesManager.Instance.TileTopHeight;
+        List<int> collidedTiles = new List<int>();
         
-        foreach (var tile in _childTiles) {
-            if (tile.GridPos == index && hit > tile.transform.position.y) {
+        for (int i = 0; i < _childTiles.Count; i++) {
+            TileBehaviour tile = _childTiles[i];
+            if (tile.GridPos == pos && hit > tile.transform.position.y) {
                 hit = tile.transform.position.y;
 
                 if (hit - TilesManager.Instance.TileCollider.y < height + TilesManager.Instance.TileCollider.y) {
-                    result = true;
+                    result++;
+                    if (hit - TilesManager.Instance.TileColliderWTolerance.y < height + TilesManager.Instance.TileCollider.y) {
+                        result++;
+                    }
+                    
+                    collided = tile;
+                    collidedTiles.Add(i);
                 }
             }
         }
 
+        if (result == 1) 
+            CaptureTile(collided);
+        else if (result == 2)
+            CallCollision(collidedTiles.ToArray());
+        
         return result;
     }
 
-    public void CallCollision(int index, Vector2 dir) {
-        
+    public void CallCollision(int[] index) {
+        foreach (int i in index) {
+            TilesManager.Instance.GiveBackTile(_childTiles[i]);
+            _childTiles.RemoveAt(i);
+        }
+    }
+
+    public void CaptureTile(TileBehaviour tile) {
+        _childTiles.Remove(tile);
+        tile.SetInPlayersHand();
     }
     
 

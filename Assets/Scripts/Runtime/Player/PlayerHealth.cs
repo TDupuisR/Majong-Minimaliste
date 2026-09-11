@@ -16,15 +16,15 @@ public class PlayerHealth : MonoBehaviour
         spriteRenderer[index].sprite = state ? spriteOn : spriteOff;
     }
 
-    public void TakeDamage(int damage = 1) {
+    public void TakeDamage() {
         if (playerHealth < 0) return;
-        playerHealth -= damage;
+        playerHealth -= 1;
         ChangeSprite(playerHealth + 1, false);
     }
 
-    public void GiveHealth(int heal = 1) {
+    public void GiveHealth() {
         if (playerHealth <= 0) return;
-        playerHealth = Mathf.Min(playerHealth + heal, playerMaxHealth);
+        playerHealth = Mathf.Min(playerHealth + 1, playerMaxHealth);
         ChangeSprite(playerHealth, true);
     }
     

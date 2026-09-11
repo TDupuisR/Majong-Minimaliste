@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TileData
   tileFamily: 2
   value: 3
-  _tileSprite: {fileID: 0}
+  _tileSprite: {fileID: 1640809674047066974, guid: 1fd9fc8536d16764bb0faa388333317d, type: 3}

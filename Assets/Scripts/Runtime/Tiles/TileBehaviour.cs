@@ -5,11 +5,13 @@ using Managers;
 public class TileBehaviour : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer _symbolSpriteRndr;
-    [SerializeField] private TileData _data;
+    [SerializeField] private TileData getData;
+    public TileData GetData { get => getData; }
     [Header("Position")]
     [SerializeField, ReadOnly] private TileGrid _parentGrid;
     [SerializeField, Tooltip("-1 is player | -2 is Null")] private int _gridPos; // -1 is player hand | -2 is Null
     public int GridPos { get => _gridPos; }
+    public void SetInPlayersHand() { _gridPos = -1; }
 
     [SerializeField] private bool debug_showCollider = true;
 
@@ -22,14 +24,14 @@ public class TileBehaviour : MonoBehaviour
         Debug.DrawLine(new Vector2(transform.position.x - size.x, transform.position.y - size.y), new Vector2(transform.position.x - size.x, transform.position.y + size.y), Color.green, 0.1f, false);
     }
 
-    public TileBehaviour(TileData a_tileData) {
-        _data = a_tileData;
+    public TileBehaviour(TileData aTileGetData) {
+        getData = aTileGetData;
     }
 
     [Button]
     public void ApplyData()
     {
-        if (!_data) {
+        if (!getData) {
             Debug.LogError($"Missing TileData to apply", gameObject);
             return;
         }
@@ -38,19 +40,19 @@ public class TileBehaviour : MonoBehaviour
             return;
         }
         
-        _symbolSpriteRndr.sprite = _data.TileSprite;
-        if (_data.TileSprite == null) 
+        _symbolSpriteRndr.sprite = getData.TileSprite;
+        if (getData.TileSprite == null) 
             Debug.LogWarning($"Symbol Sprite is null", gameObject);
     }
     public void ApplyData(TileData a_tileData, int index) {
-        _data = a_tileData;
+        getData = a_tileData;
         _gridPos = index;
         
         ApplyData();
     }
 
     public void ResetData() {
-        _data = null;
+        getData = null;
         _symbolSpriteRndr.sprite = null;
         _gridPos = -2;
     }
