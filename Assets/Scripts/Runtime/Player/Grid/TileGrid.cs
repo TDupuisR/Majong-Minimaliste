@@ -17,11 +17,10 @@ public class TileGrid : MonoBehaviour
     [Space(7)]
     [SerializeField, ReadOnly] private List<TileBehaviour> _childTiles;
 
-    private void FixedUpdate()
-    {
+    private void FixedUpdate() {
         if (!TilesManager.Instance) return;
         
-        float displacement = TilesManager.Instance.TileSpeed / Time.fixedDeltaTime;
+        float displacement = TilesManager.Instance.TileSpeed * Time.fixedDeltaTime;
 
         List<int> childToRemove = new List<int>();
         foreach (var tile in _childTiles) {
@@ -45,6 +44,29 @@ public class TileGrid : MonoBehaviour
         return transform.position.x - (e / 2) + index * Ec + (Ec / 2);
     }
 
+    public bool CheckCollision(int index, float height, out float hit)
+    {
+        bool result = false;
+        hit = TilesManager.Instance.TileTopHeight;
+        
+        foreach (var tile in _childTiles) {
+            if (tile.GridPos == index && hit > tile.transform.position.y) {
+                hit = tile.transform.position.y;
+
+                if (hit - TilesManager.Instance.TileCollider.y < height + TilesManager.Instance.TileCollider.y) {
+                    result = true;
+                }
+            }
+        }
+
+        return result;
+    }
+
+    public void CallCollision(int index, Vector2 dir) {
+        
+    }
+    
+
     [Button]
     private void UpdateDebugDisplay(float time = 2f) {
         for (int i = 0; i < n; i++) {
@@ -55,12 +77,13 @@ public class TileGrid : MonoBehaviour
         Debug.DrawLine(new Vector2(transform.position.x + (e / 2), -100), new Vector2(transform.position.x + (e / 2), 100), Color.green, time, false);
 
         if (!TilesManager.Instance) return;
-        float Ec = (e / n) + 5;
-        Debug.DrawLine(new Vector2(-Ec, transform.position.y + TilesManager.Instance.TileTopHeight), new Vector2(Ec, transform.position.y + TilesManager.Instance.TileTopHeight), Color.blue, time, false);
-        Debug.DrawLine(new Vector2(-Ec, transform.position.y + TilesManager.Instance.TileBottomHeight), new Vector2(Ec, transform.position.y + TilesManager.Instance.TileBottomHeight), Color.blue, time, false);
+        float Ec = (e / 2) + 5;
+        Debug.DrawLine(new Vector2(-Ec + transform.position.x, transform.position.y + TilesManager.Instance.TileTopHeight - TilesManager.Instance.TileCollider.y), new Vector2(Ec + transform.position.x, transform.position.y + TilesManager.Instance.TileTopHeight - TilesManager.Instance.TileCollider.y), Color.blue, time, false);
+        Debug.DrawLine(new Vector2(-Ec + transform.position.x, transform.position.y + TilesManager.Instance.TileBottomHeight - TilesManager.Instance.TileCollider.y), new Vector2(Ec + transform.position.x, transform.position.y + TilesManager.Instance.TileBottomHeight - TilesManager.Instance.TileCollider.y), Color.blue, time, false);
     }
 
     public void AddChildTile(TileBehaviour a_tile, int index) {
+        //Debug.Log($"Grid : SetTile {a_tile.name} | {index}");
         a_tile.transform.position = new Vector2(GridPos(index), a_tile.transform.position.y);
         _childTiles.Add(a_tile);
     }
