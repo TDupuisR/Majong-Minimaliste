@@ -160,8 +160,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
   playerHealth: 3
   playerMaxHealth: 3
-  spriteOn: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  spriteOff: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  spriteOn: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  spriteOff: {fileID: 0}
   spriteRenderer:
   - {fileID: 0}
   - {fileID: 0}
