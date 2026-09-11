@@ -13,7 +13,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void ChangeSprite(int index, bool state) {
         if (index < 0 || index >= spriteRenderer.Count) return;
-        spriteRenderer[index].sprite = state ? spriteOn : spriteOff;
+        spriteRenderer[index].color = state ? new Color(1f, 1f, 1f, 1f) : new Color(1f, 1f, 1f, 0);
     }
 
     [Button]
