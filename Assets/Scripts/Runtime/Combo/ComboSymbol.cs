@@ -9,7 +9,7 @@ public class ComboSymbol : ComboData
         int m = 1;
 
         for (int i = tiles.Length - 1; i > 0; i--) {
-            if (tiles[i].Family == tiles[i - 1].Family) {
+            if (tiles[i].TileFamily == tiles[i - 1].TileFamily) {
                 m++;
             }
             else m = 1;

@@ -5,8 +5,11 @@ using System;
 [Serializable]
 public class TileData : ScriptableObject
 {
-    [SerializeField] private families family;
-    public families Family { get => family;}
+    [SerializeField] private TileFamilies tileFamily;
+    public TileFamilies TileFamily { get => tileFamily;}
     [SerializeField] private int value;
     public int Value { get => value;}
+
+    [SerializeField] private Sprite _tileSprite;
+    public Sprite TileSprite { get => _tileSprite; }
 }

@@ -1,8 +1,7 @@
 using System;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-namespace InputCapture
+namespace Managers
 {
     public class PlayerInputCapture : MonoBehaviour
     {
