@@ -5,6 +5,7 @@ using NaughtyAttributes;
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField, ReadOnly] private int playerHealth = 3;
+    public int Health { get => playerHealth; }
     [SerializeField] private int playerMaxHealth = 3;
 
     [SerializeField] private Sprite spriteOn;
