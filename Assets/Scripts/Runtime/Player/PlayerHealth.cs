@@ -16,10 +16,11 @@ public class PlayerHealth : MonoBehaviour
         spriteRenderer[index].sprite = state ? spriteOn : spriteOff;
     }
 
+    [Button]
     public void TakeDamage() {
-        if (playerHealth < 0) return;
+        if (playerHealth <= 0) return;
         playerHealth -= 1;
-        ChangeSprite(playerHealth + 1, false);
+        ChangeSprite(playerHealth, false);
     }
 
     public void GiveHealth() {

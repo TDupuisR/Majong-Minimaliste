@@ -12,6 +12,10 @@ namespace Managers
         
         [SerializeField] private PlayerHealth _player1;
         [SerializeField] private PlayerHealth _player2;
+
+        private void Start() {
+            ResetLives();
+        }
         
         private void Awake() {
             if (Instance != null && Instance != this) {
