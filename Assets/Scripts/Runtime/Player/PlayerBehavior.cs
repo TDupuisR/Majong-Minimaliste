@@ -91,8 +91,6 @@ public class PlayerBehavior : MonoBehaviour
         Vector2 start = transform.position;
         Vector2 target = new Vector2(grid.GridPos(index), transform.position.y);
         
-        
-        
         float startTime = Mathf.Lerp(_timeToMove.x, _timeToMove.y, (float)_tileStack.CurrentNbTiles / (float)_maxSpeedDebuf);
         float time = startTime;
         while (time > 0) {

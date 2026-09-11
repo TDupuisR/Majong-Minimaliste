@@ -28,7 +28,7 @@ namespace Managers
 
            foreach (var combo in _combos) {
                if (combo.CheckCombo(result)) {
-                   n = combo.GetN > n ? combo.GetN : n;
+                   return combo.GetN;
                }
            }
 

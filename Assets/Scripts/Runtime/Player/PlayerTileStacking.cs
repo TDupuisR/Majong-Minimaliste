@@ -22,7 +22,7 @@ public class PlayerTileStacking : MonoBehaviour
 
     public void Collid(float hit) {
         for (int i = _stackedTiles.Count - 1; i >= 0; i--) {
-            if (hit < _stackedTiles[i].transform.position.y + TilesManager.Instance.TileColliderWTolerance.y) {
+            if (hit - TilesManager.Instance.TileCollider.y < _stackedTiles[i].transform.position.y + TilesManager.Instance.TileColliderWTolerance.y) {
                 TilesManager.Instance.GiveBackTile(_stackedTiles[i]);
                 _stackedTiles.RemoveAt(i);
             }
@@ -33,9 +33,10 @@ public class PlayerTileStacking : MonoBehaviour
     public void Unstack(int nb) {
         if (nb <= 0) return;
 
-        for (int i = _stackedTiles.Count - 1; i >= 0; i--) {
+        for (int i = _stackedTiles.Count - 1; i >= 0 && nb > 0; i--) {
             TilesManager.Instance.GiveBackTile(_stackedTiles[i]);
             _stackedTiles.RemoveAt(i);
+            nb--;
         }
         
         RoundManager.Instance.SendDamage(_playerBehavior.GetPlayerId);
