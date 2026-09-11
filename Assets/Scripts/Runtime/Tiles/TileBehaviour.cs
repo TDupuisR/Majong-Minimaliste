@@ -12,6 +12,7 @@ public class TileBehaviour : MonoBehaviour
     [SerializeField, Tooltip("-1 is player | -2 is Null")] private int _gridPos; // -1 is player hand | -2 is Null
     public int GridPos { get => _gridPos; }
     public void SetInPlayersHand() { _gridPos = -1; }
+    [SerializeField] private Vector3 _startScale = Vector3.one * 0.5f;
 
     [SerializeField] private bool debug_showCollider = true;
 
@@ -55,6 +56,7 @@ public class TileBehaviour : MonoBehaviour
         getData = null;
         _symbolSpriteRndr.sprite = null;
         _gridPos = -2;
+        transform.localScale = _startScale;
     }
 
     private void Start() {

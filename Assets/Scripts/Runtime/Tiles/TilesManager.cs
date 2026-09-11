@@ -136,14 +136,13 @@ namespace Managers
         public void GiveBackTile(TileBehaviour a_tile) {
             int index = _tilesPool.IndexOf(a_tile);
             //play anim;
+            a_tile.transform.SetParent(transform);
+            a_tile.transform.position = transform.position;
             _isTileUsed[index] = false;
             a_tile.ResetData();
-            a_tile.transform.position = transform.position;
-            a_tile.transform.SetParent(transform);
         }
 
         public void SpawnTile() {
-            Debug.Log("Spawning Start");
             int[] tilesIndex = new int[_grids.Count];
             Array.Fill(tilesIndex, -1);
             
