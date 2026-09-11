@@ -21,21 +21,7 @@ public class PlayerBehavior : MonoBehaviour
     [SerializeField] private int _maxSpeedDebuf;
     [SerializeField] private float _squishFactor;
     private Vector3 _startScale;
-
-    private void OnEnable() {
-        switch (playerId) {
-
-            case PlayerId.P2:
-                PlayerInputCapture.Instance.OnP2MoveStart += PlayerMoveStart;
-                break;
-
-            case PlayerId.P1:
-            default:
-                PlayerInputCapture.Instance.OnP1MoveStart += PlayerMoveStart;
-                break;
-        }
-
-    }
+    
     private void OnDisable() {
         switch (playerId) {
 
@@ -56,6 +42,18 @@ public class PlayerBehavior : MonoBehaviour
         Reposition(playerPos);
         
         _startScale = transform.localScale;
+        
+        switch (playerId) {
+
+            case PlayerId.P2:
+                PlayerInputCapture.Instance.OnP2MoveStart += PlayerMoveStart;
+                break;
+
+            case PlayerId.P1:
+            default:
+                PlayerInputCapture.Instance.OnP1MoveStart += PlayerMoveStart;
+                break;
+        }
     }
 
     private void FixedUpdate()
