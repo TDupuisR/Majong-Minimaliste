@@ -307,7 +307,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: -712631045867808456, guid: b670ab75dde984907b8570040daa08c5, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -575,7 +575,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: -712631045867808456, guid: b670ab75dde984907b8570040daa08c5, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -757,7 +757,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: -712631045867808456, guid: b670ab75dde984907b8570040daa08c5, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -827,6 +827,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 4292618165675742405, guid: 7f979842d0fce4fdbbb2ab59d6643077, type: 3}
+      propertyPath: spriteOn
+      value: 
+      objectReference: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
     - target: {fileID: 4292618165675742405, guid: 7f979842d0fce4fdbbb2ab59d6643077, type: 3}
       propertyPath: spriteOff
       value: 
@@ -2759,8 +2763,16 @@ PrefabInstance:
       value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 4292618165675742405, guid: 7f979842d0fce4fdbbb2ab59d6643077, type: 3}
+      propertyPath: spriteOn
+      value: 
+      objectReference: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+    - target: {fileID: 4292618165675742405, guid: 7f979842d0fce4fdbbb2ab59d6643077, type: 3}
       propertyPath: spriteOff
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4292618165675742405, guid: 7f979842d0fce4fdbbb2ab59d6643077, type: 3}
+      propertyPath: playerHealth
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 4292618165675742405, guid: 7f979842d0fce4fdbbb2ab59d6643077, type: 3}
       propertyPath: 'spriteRenderer.Array.data[0]'
